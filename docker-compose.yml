@@ -1,0 +1,14 @@
+version: "3"
+services:
+  expressjs:
+    container_name: expressjs-api
+    image: expressjs
+    build: ./
+    command: npm start
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    name: myapp_network
+    driver: bridge
