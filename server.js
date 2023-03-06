@@ -3,18 +3,6 @@ import knex from "knex";
 
 import dbConfig from "./dbConfig.js";
 
-const dbConnection = knex(dbConfig);
-dbConnection.raw("SELECT 1+1 as result")
-	.then(() => {
-		console.log("Connection to database was successful.");
-	})
-	.catch((error) => {
-		console.error("An error occurred while connecting to the database:", error);
-	})
-	.finally(() => {
-		dbConnection.destroy();
-	});
-
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
